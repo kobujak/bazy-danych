@@ -1,2 +1,2 @@
 # bazydanych
-Bazy danych 2021
+Kurs Baz danych 2021
