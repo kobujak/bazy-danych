@@ -1,0 +1,36 @@
+1. Tabela zamowienia
+
+zamowienia(id_produktu, nazwa_produktu, id_klienta, nazwa_klienta,
+data_zamowienia,cena_produktu, ilość, VAT, suma_brutto, suma_netto)
+
+zależności funkcyjne:
+id_produktu -> nazwa_produktu, cena_produktu, VAT
+suma_brutto -> suma_netto, VAT
+id_klienta -> nazwa_klienta
+nazwa_klienta -> id_klienta
+nazwa_produktu ->id_produktu, cena_produktu, VAT
+
+2. klucze kandydujące
+
+a){nazwa_produktu,nazwa_klienta,data_zamowienia}
+b){id_produktu,nazwa klienta,data_zamowienia}
+c{id_produktu,id_klienta,data_zamowienia}
+d{nazwa_produktu,id_klienta,data_zamowienia}
+
+
+3. Tabela pomieszczenia
+
+pomieszczenia(id_pomieszczenia, numer_pomieszczenia, id_budynku,
+powierzchnia, liczba_okien, liczba_drzwi, ulica, miasto, kod_pocztowy)
+
+zależności funkcyjne:
+
+id_pomieszczenia -> numer_pomieszczenia, id_budynku, powierchnia, liczba_okien, liczba_drzwi
+miasto -> kod_pocztowy
+id_budynku -> miasto, ulica 
+
+
+klucze kandydujące 
+
+a){id_pomieszczenia}
+b){id_budynku,numer_pomieszczenia}
