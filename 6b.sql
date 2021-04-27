@@ -33,7 +33,7 @@ join ksiegowosc.wynagrodzenie ON ksiegowosc.wynagrodzenie.id_pracownika = ksiego
 --f) Wyœwietl pracowników, ich pensje oraz premie. Wykorzystaj z³¹czenie lewostronne. 
 
 SELECT imie, nazwisko, pensje.kwota as pensja, premie.kwota as premia from ksiegowosc.pracownicy LEFT JOIN ksiegowosc.wynagrodzenie on ksiegowosc.wynagrodzenie.id_pracownika = ksiegowosc.pracownicy.id_pracownika
-LEFT JOIN ksiegowosc.pensje on ksiegowosc.pensje.id_pensji = ksiegowosc.wynagrodzenie.id_pensji LEFT JOIN ksiegowosc.premie on ksiegowosc.premie.id_premii = ksiegowosc.pensje.id_premii
+LEFT JOIN ksiegowosc.pensje on ksiegowosc.pensje.id_pensji = ksiegowosc.wynagrodzenie.id_pensji LEFT JOIN ksiegowosc.premie on ksiegowosc.wynagrodzenie.id_premii = ksiegowosc.pensje.id_premii
 
 
 --g) wygeneruj raport (zapytanie), które zwróci w wyniki treœæ wg poni¿szego szablonu:
