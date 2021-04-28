@@ -26,7 +26,7 @@ powierzchnia, liczba_okien, liczba_drzwi, ulica, miasto, kod_pocztowy)
 zależności funkcyjne:
 
 id_pomieszczenia -> numer_pomieszczenia, id_budynku, powierchnia, liczba_okien, liczba_drzwi
-miasto -> kod_pocztowy
+kod_pocztowy -> miasto
 id_budynku -> miasto, ulica 
 
 

@@ -18,7 +18,7 @@ BEGIN TRANSACTION
 UPDATE ksiegowosc.pracownicy
 SET telefon = SUBSTRING(telefon, 1, 8) + '-' + SUBSTRING(telefon, 8, 3) + '-' + SUBSTRING(telefon, 12, 3)
 
-SELECT * FROM ksiegowosc.pracownicy
+SELECT * FROM ksiegowosc.wynagrodzenie
 
 ROLLBACK TRANSACTION
 --c) Wyœwietl dane pracownika, którego nazwisko jest najd³u¿sze, u¿ywaj¹c du¿ych liter 
@@ -32,8 +32,10 @@ join ksiegowosc.wynagrodzenie ON ksiegowosc.wynagrodzenie.id_pracownika = ksiego
 
 --f) Wyœwietl pracowników, ich pensje oraz premie. Wykorzystaj z³¹czenie lewostronne. 
 
-SELECT imie, nazwisko, pensje.kwota as pensja, premie.kwota as premia from ksiegowosc.pracownicy LEFT JOIN ksiegowosc.wynagrodzenie on ksiegowosc.wynagrodzenie.id_pracownika = ksiegowosc.pracownicy.id_pracownika
-LEFT JOIN ksiegowosc.pensje on ksiegowosc.pensje.id_pensji = ksiegowosc.wynagrodzenie.id_pensji LEFT JOIN ksiegowosc.premie on ksiegowosc.wynagrodzenie.id_premii = ksiegowosc.pensje.id_premii
+SELECT imie, nazwisko, pensje.kwota as pensja, premie.kwota as premia from ksiegowosc.pracownicy 
+LEFT JOIN ksiegowosc.wynagrodzenie on ksiegowosc.wynagrodzenie.id_pracownika = ksiegowosc.pracownicy.id_pracownika
+LEFT JOIN ksiegowosc.pensje on ksiegowosc.pensje.id_pensji = ksiegowosc.wynagrodzenie.id_pensji 
+LEFT JOIN ksiegowosc.premie on ksiegowosc.premie.id_premii = ksiegowosc.wynagrodzenie.id_premii
 
 
 --g) wygeneruj raport (zapytanie), które zwróci w wyniki treœæ wg poni¿szego szablonu:
