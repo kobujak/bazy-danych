@@ -1,5 +1,6 @@
 
-CREATE OR ALTER PROCEDURE fibonacci (@liczba int)
+CREATE FUNCTION fibonacci (@liczba int)
+RETURNS @tab TABLE(liczba int, nr int)
 
 AS
 
@@ -13,17 +14,22 @@ BEGIN
 	set @b=1
 	set @i=0
 	set @c=0
-		Print 'Ci¹g fibonacciego'
-	print @a
-	print @b
+		insert into @tab values(@a,@i-2)
 		while @i<@liczba
 			Begin
 				set @c=@a+@b
-				print @c
+				
 				set @i=@i+1
 				set @a=@b
 				set @b=@c
+				insert into @tab values(@a,@i-2)
 		end
+		return
 end;
 
+CREATE OR ALTER PROCEDURE fib(@n INT)
+AS
+BEGIN
+SELECT * FROM dbo.fibonacci(@liczba)
+END;
 EXEC fibonacci 20
